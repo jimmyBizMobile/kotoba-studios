@@ -28,6 +28,8 @@ async function sendEmail() {
         alert("Check your values! Can't send an empty message.");
         return;
     }
-    console.log("clicked");
+    const response = await fetch('/.netlify/functions/email');
+    const jsonResp = await response.json();
+    alert(JSON.stringify(jsonResp));
     button.disabled = false;
 }
